@@ -1,0 +1,5 @@
+export enum SeatStatus{
+    AVAILABLE='AVAILABLE',
+    RESERVED='RESERVED',
+    CONFIRMED='CONFIRMED'
+}

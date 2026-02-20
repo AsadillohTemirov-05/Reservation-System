@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.seat-item {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.seat-item:hover:not(.seat-confirmed) {
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.seat-available {
+  @apply bg-available text-white hover:bg-green-600;
+}
+
+.seat-reserved {
+  @apply bg-reserved text-white cursor-not-allowed;
+}
+
+.seat-confirmed {
+  @apply bg-confirmed text-white cursor-not-allowed;
+}
+
+.seat-selected {
+  @apply bg-selected text-white ring-4 ring-blue-300;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
