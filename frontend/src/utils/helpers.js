@@ -43,9 +43,7 @@ export function isSeatClickable(status) {
   return status === SEAT_STATUS.AVAILABLE
 }
 
-/**
- * Generate unique idempotency key
- */
+
 export function generateIdempotencyKey() {
   return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
 }

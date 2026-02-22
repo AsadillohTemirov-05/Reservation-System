@@ -1,6 +1,3 @@
-/**
- * 1000 Concurrent Seat Reservation Test
- */
 
 const axios = require('axios');
 const { v4: uuidv4 } = require('uuid');

@@ -16,7 +16,7 @@ export const API_BASE_URL = '/api'
 export const POLLING_INTERVAL = 3000 
 
 export const RESERVATION_EXPIRY_MINUTES = 2
-
+  
 export const ROWS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
 export const SEATS_PER_ROW = 10
 

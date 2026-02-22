@@ -33,9 +33,8 @@ export const reservationsApi = {
     return response.data
   },
 
-  /**
-   * Cancel reservation
-   */
+
+  
   async cancel(reservationId, userId) {
     const response = await client.delete('/reservations/cancel', {
       data: { reservationId, userId },

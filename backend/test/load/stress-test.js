@@ -1,11 +1,4 @@
-/**
- * Stress Test - Multiple seats, sequential waves
- * 
- * Scenario:
- * - 10 ta seat (A1-A10)
- * - Har bir seat uchun 100 concurrent request
- * - Total: 1000 requests
- */
+
 
 const axios = require('axios');
 const { v4: uuidv4 } = require('uuid');
@@ -135,7 +128,7 @@ async function runStressTest() {
     allResults.push(result);
     totalDuration += result.duration;
 
-    // Determine status color
+  
     let status;
     if (result.successful === 1 && result.errors === 0) {
       status = colors.green;

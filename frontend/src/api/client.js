@@ -8,7 +8,6 @@ const client = axios.create({
     'Content-Type': 'application/json',
   },
 })
-
 client.interceptors.request.use(
   (config) => {
     return config

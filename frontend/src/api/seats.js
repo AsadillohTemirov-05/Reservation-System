@@ -1,17 +1,13 @@
 import client from './client'
 
 export const seatsApi = {
-  /**
-   * Get all seats
-   */
+
   async getAll(params = {}) {
     const response = await client.get('/seats', { params })
     return response.data
   },
 
-  /**
-   * Get seat by ID
-   */
+
   async getById(id) {
     const response = await client.get(`/seats/${id}`)
     return response.data
