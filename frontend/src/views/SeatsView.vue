@@ -234,21 +234,51 @@ function closeReserveModal() {
   clearSelection()
 }
 
+// async function handleReserveConfirm() {
+//   if (!selectedSeat.value) return
+
+//   try {
+//     await reserveSeat(selectedSeat.value.id)
+//     closeReserveModal()
+    
+    
+//     const seatNum = selectedSeat.value.seatNumber || 'your seat'
+//     successMessage.value = `Seat ${seatNum} reserved successfully!`
+//     showSuccessModal.value = true
+//   } catch (err) {
+//     closeReserveModal()
+    
+//     // Show detailed error
+//     if (err.response?.data?.message) {
+//       errorMessage.value = err.response.data.message
+//     } else if (err.message) {
+//       errorMessage.value = err.message
+//     } else {
+//       errorMessage.value = 'Failed to reserve seat. Please try again.'
+//     }
+    
+//     console.error('Reserve error:', err.response?.data || err)
+//     showErrorModal.value = true
+//   }
+// }
+
 async function handleReserveConfirm() {
   if (!selectedSeat.value) return
 
+  const seat = selectedSeat.value      // ✅ SNAPSHOT
+  const seatNum = seat.seatNumber      // ✅ OLDINDAN OLISH
+
   try {
-    await reserveSeat(selectedSeat.value.id)
-    closeReserveModal()
-    
-    // ✅ Safe access to seatNumber
-    const seatNum = selectedSeat.value.seatNumber || 'your seat'
+    await reserveSeat(seat.id)
+
+    closeReserveModal()   // endi xohlagancha clear qilsa ham muammo yo‘q
+
     successMessage.value = `Seat ${seatNum} reserved successfully!`
     showSuccessModal.value = true
+
   } catch (err) {
     closeReserveModal()
-    
-    // Show detailed error
+
     if (err.response?.data?.message) {
       errorMessage.value = err.response.data.message
     } else if (err.message) {
@@ -256,11 +286,12 @@ async function handleReserveConfirm() {
     } else {
       errorMessage.value = 'Failed to reserve seat. Please try again.'
     }
-    
+
     console.error('Reserve error:', err.response?.data || err)
     showErrorModal.value = true
   }
 }
+
 
 async function handleConfirmClick() {
   if (!currentReservation.value) {
