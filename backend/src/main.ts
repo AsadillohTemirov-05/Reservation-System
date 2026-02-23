@@ -39,10 +39,13 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
   app.enableCors({
-    origin: process.env.CORS_ORIGINS?.split(',') || ['http://localhost:3001'],
+    origin:[
+      'http://localhost:5173',
+      'https://reservation-system-7q2o.onrender.com',
+    ],
+    credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Idempotency-Key'],
-    credentials: true,
   });
 
   if (process.env.NODE_ENV !== 'production') {
