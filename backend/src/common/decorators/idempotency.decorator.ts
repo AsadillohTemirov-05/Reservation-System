@@ -10,7 +10,7 @@ export const IdempotencyKey = createParamDecorator(
     if (required && !key) {
       throw new BadRequestException(
         'Idempotency-Key header is required for this endpoint',
-      );
+      ); 
     }
 
     return key;
