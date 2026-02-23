@@ -11,23 +11,20 @@ async function bootstrap() {
   const logger = new Logger('Bootstrap');
 
   const app = await NestFactory.create(AppModule, {
-    // ✅ 1. NestJS logger o'chirildi - bizning LoggerService ishlatadi
+    
     bufferLogs: true,
   });
 
-  // ✅ Global Filters
   app.useGlobalFilters(
     new HttpExceptionFilter(),
     new MongoExceptionFilter(),
   );
 
-  // ✅ Global Interceptors
   app.useGlobalInterceptors(
     new LoggingInterceptor(),
     new TimeoutInterceptor(90000),
   );
 
-  // ✅ Global Validation Pipe
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
@@ -102,11 +99,10 @@ async function bootstrap() {
     logger.log(`✅ Swagger: http://localhost:${process.env.PORT || 3000}/api/docs`);
   }
 
-  // ✅ 3. Graceful Shutdown
   app.enableShutdownHooks();
 
   const port = process.env.PORT || 3000;
-  await app.listen(port);
+  await app.listen(port,'0.0.0.0');
 
   logger.log(`✅ App running on: http://localhost:${port}`);
   logger.log(`✅ API: http://localhost:${port}/api`);

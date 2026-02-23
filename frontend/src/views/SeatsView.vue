@@ -11,8 +11,6 @@
         </p>
       </div>
 
-      <!-- Active Reservation Banner -->
-      <!-- ✅ FIXED: Use optional chaining -->
       <div
         v-if="hasActiveReservation && currentReservation?.seatNumber"
         class="bg-yellow-50 border-2 border-yellow-400 rounded-xl p-6 mb-6 shadow-lg"
@@ -218,7 +216,7 @@ const errorMessage = ref('')
 
 // Handlers
 function handleSeatSelect(seat) {
-  // ✅ Check if has active reservation
+
   if (hasActiveReservation.value) {
     errorMessage.value = 'You already have an active reservation. Please confirm or cancel it first.'
     showErrorModal.value = true
@@ -265,8 +263,8 @@ function closeReserveModal() {
 async function handleReserveConfirm() {
   if (!selectedSeat.value) return
 
-  const seat = selectedSeat.value      // ✅ SNAPSHOT
-  const seatNum = seat.seatNumber      // ✅ OLDINDAN OLISH
+  const seat = selectedSeat.value      
+  const seatNum = seat.seatNumber      
 
   try {
     await reserveSeat(seat.id)
