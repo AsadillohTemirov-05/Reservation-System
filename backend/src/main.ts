@@ -41,7 +41,7 @@ async function bootstrap() {
   app.enableCors({
     origin:[
       'http://localhost:5173',
-      'https://reservation-system-7q2o.onrender.com',
+      'https://reservation-system-three-omega.vercel.app',
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
