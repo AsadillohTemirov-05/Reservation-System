@@ -41,7 +41,9 @@ async function bootstrap() {
   app.enableCors({
     origin:[
       'http://localhost:5173',
-      'https://reservation-system-three-omega.vercel.app',
+      'https://reservation-system-peach.vercel.app',
+      'https://reservation-system-git-main-asadillohs-projects.vercel.app',
+      'https://reservation-system-mruvg7rvn-asadillohs-projects.vercel.app'
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
